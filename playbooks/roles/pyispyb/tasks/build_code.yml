@@ -1,0 +1,32 @@
+- name: Ensure Build dir exists
+  file:
+    path: "{{ pyispyb_home }}"
+    state: directory
+
+- name: Checkout project
+  git:
+      repo: "{{ pyispyb_repo }}"
+      dest: "{{ pyispyb_home }}"
+      version: "{{ pyispyb_version }}"
+  ignore_errors: yes
+
+- name: Change ownership to vagrant
+  file:
+      path: "{{ pyispyb_home }}"
+      owner: vagrant
+      group: vagrant
+      recurse: yes
+
+- name: Upgrade pip
+  pip:
+    name: pip
+    extra_args: -U
+    virtualenv: "{{ pyispyb_home }}/.env"
+    virtualenv_python: python3
+  
+- name: Install application dependencies
+  pip:
+    requirements: "{{ pyispyb_home }}/requirements.txt"
+    virtualenv: "{{ pyispyb_home }}/.env"
+    virtualenv_python: python3
+  ignore_errors: yes

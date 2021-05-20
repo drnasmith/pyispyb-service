@@ -1,0 +1,17 @@
+- name: Test Task
+  debug:
+    msg: "Deploying files to {{ pyispyb_home }}"
+
+- name: Deploy updated config file
+  template:
+    src: templates/config.py.j2
+    dest: "{{ pyispyb_home }}/pyispyb/config.py"
+    owner: vagrant
+    group: vagrant
+
+- name: Deploy updated core ispyb file
+  template:
+    src: templates/ispyb_core_config.yml.j2
+    dest: "{{ pyispyb_home }}/ispyb_core_config.yml"
+    owner: vagrant
+    group: vagrant

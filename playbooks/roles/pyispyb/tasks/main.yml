@@ -1,0 +1,4 @@
+# Tasks that Download/Checkout SynchWeb repository
+- include_tasks: install.yml
+- include_tasks: build_code.yml
+- include_tasks: deploy_config.yml

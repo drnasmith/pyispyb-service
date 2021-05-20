@@ -1,0 +1,13 @@
+---
+# Install MySQL (MariaDB) packages
+- name: Install Packages
+  package: name="{{item}}" state=latest
+  with_items:
+    - git
+    - python3
+    - python3-devel
+    - python-virtualenv
+    - mariadb-devel
+    - gcc
+
+

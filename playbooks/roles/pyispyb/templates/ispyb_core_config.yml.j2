@@ -1,0 +1,13 @@
+server:
+    SERVICE_NAME : "core"
+    API_ROOT : "/ispyb/api/v1"
+    SQLALCHEMY_DATABASE_URI : "mysql://{{ispyb_user}}:{{ispyb_password}}@{{ispyb_host}}/{{ispyb_db_name}}"
+
+    AUTH_MODULE : "pyispyb.app.extensions.auth.DummyAuth"
+    AUTH_CLASS : "DummyAuth"
+    MASTER_TOKEN : "MasterToken"
+authorization_rules:
+    proposals : {
+        "get": ["manager", "admin", "user"],
+        "post": ["manager", "admin"]
+    }

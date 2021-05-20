@@ -1,0 +1,14 @@
+# Variables only required under this role
+pyispyb_home: /home/vagrant/pyispyb
+sitename: pyispyb.example.org
+pyispyb_repo: https://github.com/ispyb/py-ispyb.git
+pyispyb_version: HEAD
+
+# Shared key with synchweb
+secret_jwt_key: abcdefg123456
+
+# ISPyB Database connection
+ispyb_user: ispyb
+ispyb_password: integration
+ispyb_host: 192.168.33.10
+ispyb_db_name: ispyb
